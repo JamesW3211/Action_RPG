@@ -54,7 +54,7 @@ class Game:
 
 
 
-        self.player = Player((220,120), self.all_sprites, Paths["player"], self.obstacles)
+        self.player = Player((180,120), self.all_sprites, Paths["player"], self.obstacles)
 
 
     def run(self):

@@ -5,6 +5,7 @@ WINDOW_HEIGHT = 240
 
 Paths = {
     "player": "graphics/player"
+    
 
 }
 
