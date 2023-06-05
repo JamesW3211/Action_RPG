@@ -12,6 +12,7 @@ from pygame.math import Vector2 as vector
 from player import Player
 from pytmx.util_pygame import load_pygame
 from sprite import Sprite
+from monster import Enemy
 
 class AllSprites(pygame.sprite.Group):
     def __init__(self):
@@ -52,9 +53,21 @@ class Game:
         for obj in tmx_map.get_layer_by_name("Objects"):
             Sprite((obj.x, obj.y),obj.image ,[self.all_sprites, self.obstacles])
 
+        for obj in tmx_map.get_layer_by_name("Entities"):
+            if obj.name == "Player":
+                self.player = Player(
+                    pos = (obj.x,obj.y),
+                    groups= self.all_sprites,
+                    path = Paths["player"],
+                    collision_sprites= self.obstacles
+                )
+
+            if obj.name == "Enemy":
+                Enemy((obj.x,obj.y), self.all_sprites, Paths["enemy"], self.obstacles, self.player)
 
 
-        self.player = Player((180,120), self.all_sprites, Paths["player"], self.obstacles)
+
+        # self.player = Player((180,120), self.all_sprites, Paths["player"], self.obstacles)
 
 
     def run(self):
