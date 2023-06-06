@@ -54,6 +54,10 @@ class Player(Entity):
             if self.attacking:
                 self.attacking = False
 
+        # if int(self.frame_index) == 1 and self.attacking:
+        #     if self.get_player_distance_direction()[0] < self.attack_radius:
+        #         self.player.damage()
+
         self.image = current_animation[int(self.frame_index)]
 
 
@@ -62,3 +66,5 @@ class Player(Entity):
         self.get_status()
         self.move(dt)
         self.animate(dt)
+
+        self.vulnerability_timer()

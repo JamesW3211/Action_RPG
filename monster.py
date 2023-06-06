@@ -48,7 +48,7 @@ class Enemy(Entity, Monster):
         self.player = player
         self.notice_radius = 150
         self.walk_radius = 100
-        self.attack_radius = 20
+        self.attack_radius = 30
 
     def attack(self):
         distance = self.get_player_distance_direction()[0]
@@ -61,6 +61,13 @@ class Enemy(Entity, Monster):
 
     def animate(self,dt):
         current_animation = self.animations[self.status]
+
+
+        if int(self.frame_index) == 1 and self.attacking:
+            if self.get_player_distance_direction()[0] < self.attack_radius:
+                self.player.damage()
+
+
         self.frame_index += 7 * dt
         if self.frame_index >= len(current_animation):
             self.frame_index = 0
@@ -77,6 +84,8 @@ class Enemy(Entity, Monster):
         self.attack()
         self.move(dt)
         self.animate(dt)
+        self.check_death()
+        self.vulnerability_timer()
 
 
 
