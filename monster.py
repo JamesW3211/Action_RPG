@@ -49,6 +49,7 @@ class Enemy(Entity, Monster):
         self.notice_radius = 150
         self.walk_radius = 100
         self.attack_radius = 30
+        self.health = 3
 
     def attack(self):
         distance = self.get_player_distance_direction()[0]

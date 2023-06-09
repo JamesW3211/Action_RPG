@@ -2,6 +2,7 @@ import pygame
 from pygame.math import Vector2 as vector
 from entity import Entity
 
+
 class Player(Entity):
     def __init__(self, pos, groups, path, collision_sprites):
         super().__init__(pos, groups, path, collision_sprites)
@@ -45,8 +46,13 @@ class Player(Entity):
                 self.direction = vector()
                 self.frame_index = 0
 
+
     def animate(self,dt):
         current_animation = self.animations[self.status]
+
+        if int(self.frame_index) == 1 and self.attacking:
+                # self.enemy.damage()
+                print("oouch")
 
         self.frame_index += 7 * dt
         if self.frame_index >= len(current_animation):

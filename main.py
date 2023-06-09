@@ -42,6 +42,7 @@ class Game:
 
         self.all_sprites = AllSprites()
         self.obstacles = pygame.sprite.Group()
+        self.monsters = pygame.sprite.Group()
 
         self.setup()
 
@@ -63,7 +64,7 @@ class Game:
                 )
 
             if obj.name == "Enemy":
-                Enemy((obj.x,obj.y), self.all_sprites, Paths["enemy"], self.obstacles, self.player)
+                Enemy((obj.x,obj.y), [self.all_sprites, self.monsters], Paths["enemy"], self.obstacles, self.player)
 
 
 
