@@ -43,7 +43,7 @@ class Player(Entity):
 
             if keys[pygame.K_SPACE]:
                 self.attacking = True
-                self.direction = vector()
+                #self.direction = vector()
                 self.frame_index = 0
 
 
