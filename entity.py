@@ -57,7 +57,7 @@ class Entity(pygame.sprite.Sprite):
                     surf = pygame.image.load(path).convert_alpha()
                     key = folder[0].split("\\")[1]
                     self.animations[key].append(surf)
-        print(self.animations)
+      
 
     def move(self, dt):
         if self.direction.magnitude() !=0:
