@@ -1,7 +1,6 @@
 """
 Action RPG
 Created by JamesW
-This file was created with the purpose of learning the basics of Python programing
 
 """
 
